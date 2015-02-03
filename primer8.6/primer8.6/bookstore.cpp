@@ -46,39 +46,10 @@ ostream &print(ostream &os, const Sales_data &item){
 	return os;
 }
 
-
-/*
-错误的代码
-*/
-//ostream  &print(ostream &out, const Sales_data &itemdata){// &的含义不是很清楚
-//	out << itemdata.isbn() << "	" << itemdata.salenum << "	" << itemdata.singlePrice << "	" 
-//		<< itemdata.totalPrice << endl;
-//	return out;
-//}
-//
-//void read(ifstream &file,  Sales_data &sdata){
-//	string singleLine;
-//	if (!file.eof()){
-//		getline(file, singleLine);
-//		stringstream lineToDevide(singleLine);
-//		string singleWord;
-//		lineToDevide >> sdata.ISBN;
-//
-//		lineToDevide >> singleWord;
-//		sdata.salenum = stoi(singleWord);
-//
-//		lineToDevide >> singleWord;
-//		sdata.singlePrice = stod(singleWord);
-//
-//		lineToDevide >> singleWord;
-//		sdata.totalPrice = stod(singleWord);
-//	}
-//	else cerr << "end of file, no book to handle!" << endl;
-//
-//}
 int main(int argc, char *argv[]){
 	ifstream input(argv[1]);
-	ofstream output(argv[2]);
+	ofstream output;
+	output.open(argv[2], ofstream::app);
 	Sales_data total;
 	if (read(input, total)){
 		Sales_data trans;
@@ -96,25 +67,5 @@ int main(int argc, char *argv[]){
 	else{
 		cerr << "No data?!" << endl;
 	}
-	/*
-	错误代码
-	*/
-	/*ifstream bookFile(filename);
-	Sales_data total;
-	read(bookFile, total);
-	Sales_data trans;
-	while (read(bookFile, trans)){
-			if (total.isbn() == trans.isbn())
-				total.combine(trans);
-			else{
-				print(cout, total) << endl;
-				total = trans;
-			}
-		}
-		print(cout, total) << endl;
-	}
-	else{
-		cerr << "No data?!" << endl;
-	}
-	return 0;*/
+
 }
