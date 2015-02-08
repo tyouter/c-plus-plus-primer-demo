@@ -8,7 +8,7 @@ using namespace std;
 const int KeyInt = 5;// 给定的int数值
 const string KeyStr = "fuck";
 typedef vector<int>::iterator intItr;//int 迭代器
-typedef list<string>::iterator strItr;//int 迭代器
+typedef list<string>::iterator strItr;//string 迭代器
 
 short count(intItr begin, intItr end, int givenInt){// 函数用来计算vector中givenInt参数的个数
 	short countInt = 0;
